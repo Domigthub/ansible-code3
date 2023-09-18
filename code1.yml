@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+     - name: Install passwd package
+       apt:
+          name: passwd
+          update_cache: yes
+     - name: create group
+       group:
+          name: cloudteam
+          state: present
+     - name: Create user
+       user:
+          name: serge2028
+          comment: Serge Admin
+          group: cloudteam
